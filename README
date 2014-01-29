@@ -1,0 +1,10 @@
+WELCOME
+
+This is my first attempt at a PHP script.
+
+I decided to build this script because I needed to make a script for a project of mine that allowed users to register for an account
+and then login to a members area.
+
+After much learning what you see in front of you is the on-going result.
+
+Currently it uses PHP & MYSQL and has currently only been tested locally on a development server.
