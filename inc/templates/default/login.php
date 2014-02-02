@@ -51,7 +51,8 @@ if(isset($_POST['submit'])) {
             echo $errWrongPass;
     } else {
             validateUser(); //sets the session data for this user
-            header('Location: index.php?page=members');
+            
+           // header('Location: index.php?page=members');
      }
 } 
 echo "</main></div>";

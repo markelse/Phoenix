@@ -1,10 +1,24 @@
-WELCOME
+WELCOME TO PHOENIX
 
-This is my first attempt at a PHP script.
+I am new to PHP and this is my first attempt at a full PHP script.
 
-I decided to build this script because I needed to make a script for a project of mine that allowed users to register for an account
-and then login to a members area.
+I decided to build this script because I needed to make a script for a project of mine that allowed
+ users to register for an account and then login to a members area.
 
-After much learning what you see in front of you is the on-going result.
+After much reading and learning (and many headaches too!) what you see in front of you is the on-going
+ result of everything I know.
 
-Currently it uses PHP & MYSQL and has currently only been tested locally on a development server.
+Currently the Phoenix script run on PHP & MYSQL and has currently only been tested locally on a development server.
+
+To install simply run the included install.sql file, register an account and then login.
+
+*** TO DO
+
+[1] Add an admin area.
+    [1] Allow for user control (Add, edit & Delete)
+    [2] Allow for site config items to be edited in the admin (Site title etc)
+[2] Create a user dashboard.
+    [1] Allow for password resets by email.
+    [2] Allow logged-in users the ability to change their password.
+    [3] Allow logged-in users the ability to change their email.
+[3] Allow for user roles.

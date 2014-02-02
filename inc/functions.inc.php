@@ -20,9 +20,30 @@ function createSalt()
 // Validates a login session
 function validateUser()
 {
+    global $con;
+    
     session_regenerate_id (TRUE);
     $_SESSION['valid'] = 1;
+    $_SESSION['username'] = stripslashes($_POST['username']);
+    
+    $username   = stripslashes($_SESSION['username']);
+    $username   = mysqli_real_escape_string($con, $username);
+         
+         $query = mysqli_query($con,"SELECT user_level FROM users WHERE username = '$username';");
+         $row = mysqli_fetch_array($query); 
+
+         if($row['user_level'] == 5) 
+         { 
+            header('Location: index.php?page=admin');
+            
+         } else { 
+             
+            header('Location: index.php?page=members');
+        } 
+    
 }
+
+
 
 // Checks if a user is logged into the site
 function isLoggedIn()

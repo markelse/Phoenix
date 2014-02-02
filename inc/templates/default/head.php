@@ -6,7 +6,7 @@
 ?>
 <!-- This page contains extra <head> data such as scripts and style sheets! -->
 <style type="text/css">
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}
+html,body,div,span,applet,object,iframe,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,fieldset,form,label,legend,h1,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}
 body{line-height:1;background-color:#5c7c99;font:12px/18px Arial, sans-serif;width:100%;height:100%}
 ol,ul{list-style:none}
 blockquote,q{quotes:none}
