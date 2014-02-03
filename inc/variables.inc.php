@@ -7,5 +7,5 @@
 // Site variables
 $site_header = "Mark Else";
 $site_Path = "C:\wamp\www\php\1";
-$site_url = "localhost";
+$site_url = "http://localhost/php/Phoenix/";
 

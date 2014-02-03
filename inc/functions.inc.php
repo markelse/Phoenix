@@ -35,15 +35,23 @@ function validateUser()
          if($row['user_level'] == 5) 
          { 
             header('Location: index.php?page=admin');
+            $_SESSION['level'] = 5;
             
          } else { 
              
             header('Location: index.php?page=members');
+            $_SESSION['level'] = 1;
         } 
     
 }
 
-
+function get_username() {
+    if(isset($_SESSION['username'])) { 
+        echo $_SESSION['username']; 
+    } else {
+        echo 'Guest';
+    }
+}
 
 // Checks if a user is logged into the site
 function isLoggedIn()
@@ -55,14 +63,18 @@ function isLoggedIn()
 
 // Logs out the user and destroys all session data
 function logout()
+
 {
-    $_SESSION = array();
+   global $site_url;
+   $_SESSION = array();
     unset($_SESSION["valid"]);
+    unset($_SESSION["username"]);
     session_destroy();
-    header("Location: index.php");
+    header("Location: {$site_url}");
 }
 
 function get_page_header() {
+    
     include 'inc/templates/default/header.php';
 }
 
@@ -71,6 +83,7 @@ function get_page_footer() {
 }
 
 function get_page_sidebar() {
+    global $site_url;
     include 'inc/templates/default/sidebar.php'; 
 }
 

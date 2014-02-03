@@ -14,7 +14,7 @@ To install simply run the included install.sql file, register an account and the
 
 *** TO DO
 
-[1] Add an admin area.
+[1] <s>Add an admin area.</s>
     [1] Allow for user control (Add, edit & Delete)
     [2] Allow for site config items to be edited in the admin (Site title etc)
 [2] Create a user dashboard.

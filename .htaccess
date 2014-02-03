@@ -1,6 +1,5 @@
-<Files .htaccess> 
-order allow,deny 
-deny from all 
-</Files> 
+Options +FollowSymLinks
+RewriteEngine on
 
-ErrorDocument 404 /php/Phoenix/index.php?page=error
+# Rewrites the URL like index.php/page/members/
+RewriteRule /page/(.*)/ ?page=$1

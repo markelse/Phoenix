@@ -36,28 +36,34 @@ echo "
 if(isset($_POST['submit'])) {
     
     // Prepare the user data for the registration process
-    $username   = $_POST['username'];
-    $username   = stripslashes($username);
-    $username   = mysqli_real_escape_string($con, $username);
+    // This functions runs the user input through stripslashes and mysqli_real_escape_string
+    $username = stripslashes($_POST['username']);
+    $username = mysqli_real_escape_string($con, $username);
     
-    $email   = $_POST['email'];
-    $email   = stripslashes($email);
+    $email   = stripslashes($_POST['email']);
     $email   = mysqli_real_escape_string($con, $email);
     
+    // Checks that the passwords entered match, contain at least 7 charcters; including upper, lower and special characters.
+    // The password is then salted and hashed.
+    // Checks that the 2 passwords match
     $password   = $_POST['password'];
     $password2  = $_POST['password2'];
+    
+    if($password !== $password2) {
+        echo $errPWMatch;
+    } elseif(!preg_match('/^(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{7,30}$/',$_POST['password']))  {
+        echo $errPWLength;
+   }
     
     $hash = hash('sha256', $password);
     $salt = createSalt();
     $hash = hash('sha256', $salt . $hash);
+
     
+    // Start some error checking
     if($username == "" || $email == "" || $password == "" || $password2 == "") {
         echo $errFieldsEmpty;
-    } elseif(!preg_match('/^(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{7,30}$/',$_POST['password']))  {
-        echo $errPWLength;
-   } elseif($password != $password2) {
-        echo $errPWMatch;
-   } elseif(!preg_match('/^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/',$_POST['email']))  {
+    } elseif(!preg_match('/^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/',$_POST['email']))  {
         echo $errEmailInvalid;
     } elseif (strlen($username) > 30) {
         echo $errUserLength;

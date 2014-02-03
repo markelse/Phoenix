@@ -14,7 +14,7 @@ get_page_header();
 
 	<div class="middle">
 <?php
-// Display the login form
+// Display the template
 include 'inc/templates/default/home.php';
 
 // Display the sidebar

@@ -12,7 +12,6 @@ $page = "home";
 $page_dir = "pages";
 
 // Checks to see if $_GET['page'] has been set.
-
 if(isset($_GET['page'])) {
     
     // Defines $page to $_GET

@@ -10,7 +10,6 @@ require 'inc/db.inc.php';
 
 // Regenerate a new session id for added security
 session_regenerate_id(true);
-$_SESSION['user_level']=5;
 
 // Display the page header.
 get_page_header();
