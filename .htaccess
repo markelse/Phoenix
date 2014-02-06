@@ -2,4 +2,4 @@ Options +FollowSymLinks
 RewriteEngine on
 
 # Rewrites the URL like index.php/page/members/
-RewriteRule /page/(.*)/ ?page=$1
+RewriteRule /(.*)/ ?page=$1

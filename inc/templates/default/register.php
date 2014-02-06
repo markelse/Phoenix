@@ -78,7 +78,7 @@ if(isset($_POST['submit'])) {
             $add = mysqli_query($con,"INSERT INTO users ( username, email, password, salt ) VALUES ( '$username' , '$email' , '$hash' , '$salt' )");
             mysqli_close($con);
         
-        echo "Your account has been created, your username is " . $username.". Click <a href='index.php?page=login'>here</a> to login.";
+        echo "Your account has been created, your username is " . $username.". Click <a href='{$site_url}index.php/login/'>here</a> to login.";
          } 
 }
 }

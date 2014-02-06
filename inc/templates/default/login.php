@@ -28,8 +28,7 @@ echo "<div class='container'>
 if(isset($_POST['submit'])) {
     
     // Prepare data for login process
-    $username   = $_POST['username'];
-    $username   = stripslashes($username);
+    $username   = stripslashes($_POST['username']);
     $username   = mysqli_real_escape_string($con, $username);
     
     $password   = $_POST['password'];
@@ -37,6 +36,7 @@ if(isset($_POST['submit'])) {
     $hash = hash('sha256', $password);
     $salt = createSalt();
     $hash = hash('sha256', $salt . $hash);
+    
     $query = "SELECT password, salt FROM users WHERE username = '$username';";
     $result = mysqli_query($con, $query);
     $userData = mysqli_fetch_array($result, MYSQL_ASSOC);
@@ -51,8 +51,6 @@ if(isset($_POST['submit'])) {
             echo $errWrongPass;
     } else {
             validateUser(); //sets the session data for this user
-            
-           // header('Location: index.php?page=members');
      }
 } 
 echo "</main></div>";

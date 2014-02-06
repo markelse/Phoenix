@@ -34,12 +34,12 @@ function validateUser()
 
          if($row['user_level'] == 5) 
          { 
-            header('Location: index.php?page=admin');
+            header('Location: ../admin/');
             $_SESSION['level'] = 5;
             
          } else { 
              
-            header('Location: index.php?page=members');
+            header('Location: ../members/');
             $_SESSION['level'] = 1;
         } 
     
@@ -63,18 +63,18 @@ function isLoggedIn()
 
 // Logs out the user and destroys all session data
 function logout()
-
 {
    global $site_url;
+   
    $_SESSION = array();
-    unset($_SESSION["valid"]);
-    unset($_SESSION["username"]);
+    unset($_SESSION['valid']);
+    unset($_SESSION['username']);
+    unset($_SESSION['user_level']);
     session_destroy();
     header("Location: {$site_url}");
 }
 
 function get_page_header() {
-    
     include 'inc/templates/default/header.php';
 }
 
