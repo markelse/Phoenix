@@ -26,7 +26,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,ar
 
 #regBox{width:500px;color:#000;padding:18px}
 #loginBox{width:300px;height:100px;border:6px #1e458a double;background-color:#e5edfa;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=66);filter:alpha(opacity=66);-moz-opacity:0.66;-khtml-opacity:0.66;opacity:0.66;color:#000;-webkit-border-radius:8px;-moz-border-radius:8px;border-radius:8px;-moz-box-shadow:0 0 27px 0 #000;-webkit-box-shadow:0 0 27px 0 #000;box-shadow:0 0 27px 0 #000;padding:18px}
-.error{font-weight:700;color:#FFF}
+.error{font-weight:700;color:#000}
 .logo{float:left;margin:5px}
 #regBox input,#loginBox input{border:2px solid #000;background-color:#e5edfa}
 #regBox p,#loginBox p{color:#000;font-weight:700}

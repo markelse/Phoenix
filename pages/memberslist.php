@@ -14,8 +14,18 @@ get_page_header();
 
 	<div class="middle">
 <?php
-// Displays list of members
-include 'inc/templates/default/memberslist.php';
+
+// Runs a query to check if user is a member
+include 'inc/reuse/query_user_level.php'; 
+if(isLoggedIn() && $row['user_level'] >= 1) {
+    // Display the members page
+include 'inc/templates/default/members/memberslist.php';
+} else {
+    // Echo a little message
+    $message = "This is a restricted page, please login to continue.";
+    // Display the login form
+    include 'inc/templates/default/login.php';
+}
 
 // Display the sidebar
 get_page_sidebar();

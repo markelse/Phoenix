@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(150) NOT NULL,
   `password` varchar(64) NOT NULL,
   `salt` varchar(3) NOT NULL,
+  `user_level` int(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-);
+)

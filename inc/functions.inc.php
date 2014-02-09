@@ -7,7 +7,7 @@
 // Starts a new session
 session_start();
 
-// Include sitwide variable
+// Include sitewide variable
 include 'variables.inc.php';
 
 // Creates a random 3 character sequence, used to add a salt to passwords
@@ -26,22 +26,17 @@ function validateUser()
     $_SESSION['valid'] = 1;
     $_SESSION['username'] = stripslashes($_POST['username']);
     
-    $username   = stripslashes($_SESSION['username']);
-    $username   = mysqli_real_escape_string($con, $username);
-         
-         $query = mysqli_query($con,"SELECT user_level FROM users WHERE username = '$username';");
-         $row = mysqli_fetch_array($query); 
+    include 'inc/reuse/query_user_level.php'; 
 
          if($row['user_level'] == 5) 
          { 
             header('Location: ../admin/');
-            $_SESSION['level'] = 5;
             
          } else { 
              
             header('Location: ../members/');
-            $_SESSION['level'] = 1;
-        } 
+
+            } 
     
 }
 
@@ -69,7 +64,6 @@ function logout()
    $_SESSION = array();
     unset($_SESSION['valid']);
     unset($_SESSION['username']);
-    unset($_SESSION['user_level']);
     session_destroy();
     header("Location: {$site_url}");
 }
@@ -94,3 +88,4 @@ function get_site_header() {
 
 // Include sitewide error codes
 include 'errors.inc.php';
+

@@ -7,8 +7,6 @@
 <div class="container">
     <main class="content">
 <?php
-if(isLoggedIn ()) {
-    
     // Query the database for a list of members
     $query = mysqli_query($con,"SELECT username,email FROM users ORDER BY id");
 
@@ -20,11 +18,6 @@ if(isLoggedIn ()) {
         . "({$row["email"]})<br />"
         . "</p>";
     }
-    
-} else {
-    echo "Please login to view this page. Thank you!";
-}
-
 ?>
     </main>
 </div>
