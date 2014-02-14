@@ -13,7 +13,15 @@ if(!isset($message)){
 // Display the login form
 echo "<div class='container'>
 	<main class='content'>
-        <p>{$message}</p>
+        <p>";
+
+            if(!isset($message)){
+                echo "";
+            } else {
+                echo $message;
+            }
+           
+echo "</p>
                <form name='login' method='POST' action='#'>
                   <table>
                       <tr>

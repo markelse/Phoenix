@@ -22,7 +22,7 @@ get_page_header();
 include 'inc/reuse/query_user_level.php'; 
 if(isLoggedIn() && $row['user_level'] >= 1) {
     // Display the members change email page
-include 'inc/templates/default/members/email.php';
+include 'inc/templates/default/members/password.php';
 } else {
     // Echo a little message
     $message = "This is a restricted page, please login to continue.";
@@ -39,4 +39,3 @@ get_page_sidebar();
 <?php
 // Display the page footer
 get_page_footer();
-?>

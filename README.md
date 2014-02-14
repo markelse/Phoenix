@@ -1,6 +1,6 @@
 # WELCOME TO PHOENIX
 
-My name is MArk and I am the sole developer of Phoenix. I am new to PHP and this is my first attempt at a full PHP script.
+My name is Mark and I am the sole developer of Phoenix. I am new to PHP and this is my first attempt at a full PHP script.
 
 I decided to build this script because I needed to make a script for a project of mine that allowed users to register for an account and then login to a members area. 
 
