@@ -14,14 +14,14 @@ get_page_header();
 
 	<div class="middle">
 <?php
-// Display the template
+// Display the homepage
 include 'inc/templates/default/home.php';
 
 // Display the sidebar
 get_page_sidebar();
 ?>	
 
-	</div><!-- .middle-->
+	</div>
 
 <?php
 // Display the page footer

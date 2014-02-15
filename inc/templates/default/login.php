@@ -7,9 +7,7 @@
 // This displays a message (if set). An example can be found when a guest/member visits an admin page
 // If they do they will see the login form along with a restricted page message.
 // If no message has been set, nothing will display.
-if(!isset($message)){
-    echo "";
-}
+
 // Display the login form
 echo "<div class='container'>
 	<main class='content'>

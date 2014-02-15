@@ -17,7 +17,7 @@ get_page_header();
 
 	<div class="middle">
 <?php
-// Display the login form
+// Display the 404 page not found error template
 include 'inc/templates/default/404.php';
 
 // Display the sidebar

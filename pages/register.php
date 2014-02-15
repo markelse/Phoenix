@@ -12,16 +12,15 @@ require 'inc/db.inc.php';
 get_page_header();
 ?>
 
-	<div class="middle">
+<div class="middle">
 <?php
-// Display the login form
+// Display the registration form
 include 'inc/templates/default/register.php';
 
 // Display the sidebar
 get_page_sidebar();
 ?>	
-
-	</div><!-- .middle-->
+</div>
 
 <?php
 // Display the page footer

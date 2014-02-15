@@ -8,18 +8,24 @@
 echo "
     <div class='container'>
 	<main class='content'>
+        <p>Here you can change your password, once your password has been changed you will be logged out and will need to 
+        re-login with your new password.</p>
+        
+        <p>For your security we require that you type in your current password before your can change to a new password.</p>
+        
+        <p>{$errPWLength}</p>
                 <form name='register' method='POST' action='#'>
                     <table>
                        <tr>
-                           <td width='150'>Password :</td>
+                           <td width='250'>Current Password :</td>
                            <td><input name='password' type='password' /><td>
                        </tr>
                        <tr>
-                           <td width='150'>Password :</td>
+                           <td width='250'>New Password :</td>
                            <td><input name='passwordnew' type='password' /><td>
                        </tr>
                        <tr>
-                           <td width='150'>Password :</td>
+                           <td width='250'>New Password (Again to avoid typos) :</td>
                            <td><input name='passwordnew2' type='password' /><td>
                        </tr>
                        <tr>
@@ -72,7 +78,7 @@ if(isset($_POST['submit'])) {
     $add = mysqli_query($con,"UPDATE  `phoenix`.`users` SET  `password` = '$hash', `salt` =  '$salt' WHERE `username` = '$username'");
     mysqli_close($con);
     
-    $site_url = "http://localhost/php/Phoenix/index.php/login/";
+    $site_url = $site_url."index.php/login/";
     $message = "Your password was successfully changed, please re-login.";
     // Logs out the user and destroys the session.
     logout();
