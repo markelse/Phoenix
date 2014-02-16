@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Mark Else</title>
+        <title><?php echo $site_name; ?></title>
             <?php include 'head.php'; ?>
    </head>
     

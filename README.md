@@ -30,16 +30,16 @@ Currently the Phoenix script run on PHP & MYSQL *and has currently only been tes
 ### TO DO
 
 1. ~~Add an admin area.~~
-..1. Allow for user control (Add, ~~edit~~ & Delete)
-..2. Allow for site config items to be edited in the admin (Site title etc)
-2 ~~Create a user dashboard.~~
-..1. Allow for password resets by email.
-..2. ~~Allow logged-in users the ability to change their password.~~
-..3. ~~Allow logged-in users the ability to change their email.~~
-3. ~~Allow for user roles.~~
-4. Support for back-end content creation (Like a CMS).
-..1. Along with WYSIWYG editing.
-..2. & content syndication.
-5. Add a site search.
-6. Improve the look of the default template.
-7. Incorporate 3rd party login scripts such as Facebook Connect & openID.
+2. Allow for user control (Add, ~~edit~~ & Delete)
+3. ~~Allow for site config items to be edited in the admin (Site title etc)~~
+4 ~~Create a user dashboard.~~
+5. Allow for password resets by email.
+6. ~~Allow logged-in users the ability to change their password.~~
+7. ~~Allow logged-in users the ability to change their email.~~
+8. ~~Allow for user roles.~~
+9. Support for back-end content creation (Like a CMS).
+10. Along with WYSIWYG editing.
+11. & content syndication.
+12. Add a site search.
+13. Improve the look of the default template.
+14. Incorporate 3rd party login scripts such as Facebook Connect & openID.

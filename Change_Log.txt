@@ -1,0 +1,34 @@
+V 0.3.6 (16th Feb 14)
+- Added ability to update the sites config via the admin pages.
+- Re-wrote some of the code to allow for better integration with the in-built site config.
+- Updated the README file.
+- Added MIT License, we are now Open Source.
+- Updated login.php and register.php to redirect logged in users to dashboard should they try and register or re-login without logging out.
+- Formatted the sidebar a little better.
+
+V 0.3.5
+ADMIN
+- Separate area for Admin members.
+- Double security checks for logged in users, checks for user session and queries the database for a user level.
+- Ability for Admin members to edit members information.
+
+MEMBERS
+- Separate area for members.
+- Double security checks for logged in users, checks for user session and queries the database for a user level.
+- Ability for logged in members to change their email address.
+- Ability for logged in members to change their passwords.
+- All members must input their current password before changing their email or password.
+
+SECURITY
+- All user input is run through stripslashes() and mysqli_real_escape_string() before it it run through mysql.
+- All session_ids are regenerated during login, validation, password editing and email editing.
+- Passwords must contain at least 1 Upper-case, 1 Numeric & 1 Non-alphabet character.
+- Admin and normal members are separated using user_levels, 5 = Admins, 1 = Normal Member.
+
+VISITORS
+- Ability to register for an account.
+- Ability to login to an already registered account.
+
+OTHER
+- SEF urls (such as site.com/index.php/memberslist/)
+- Ability to easily change the design, look & feel of the templates without having to know php.

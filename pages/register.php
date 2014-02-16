@@ -14,9 +14,12 @@ get_page_header();
 
 <div class="middle">
 <?php
-// Display the registration form
-include 'inc/templates/default/register.php';
-
+if(!isLoggedIn()) {
+    // Display the registration form
+    include 'inc/templates/default/register.php';
+} else {
+    include 'inc/templates/default/members/members.php';
+}
 // Display the sidebar
 get_page_sidebar();
 ?>	

@@ -14,8 +14,12 @@ get_page_header();
 
 <div class="middle">
 <?php
-// Displays the login form
-include 'inc/templates/default/login.php';
+if(!isLoggedIn()) {
+    // Displays the login form
+    include 'inc/templates/default/login.php';
+} else {
+    include 'inc/templates/default/members/members.php';
+}
 
 // Display the sidebar
 get_page_sidebar();

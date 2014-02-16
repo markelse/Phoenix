@@ -30,9 +30,14 @@ switch ($user_level)
                 <ol>
                     <li><a href='{$site_url}index.php/' title='Home'>Home</a></li>
                     <li><a href='{$site_url}index.php/members/' title='Members Dashboard'>Members Dashboard</a></li>
+                        <ul>
+                        <li><a href='{$site_url}index.php/members_email/' title='Change your email address'>Change your email</a></li>
+                        <li><a href='{$site_url}index.php/members_password/' title='Change your password'>Change your password</a></li>
+                        </ul>
                     <li><a href='{$site_url}index.php/admin/' title='Admin Dashboard'>Admin Dashboard</a></li>
-                    <li><a href='{$site_url}index.php/members_email/' title='Change your email address'>Change your email</a></li>
-                    <li><a href='{$site_url}index.php/members_password/' title='Change your password'>Change your password</a></li>
+                        <ul>
+                        <li><a href='{$site_url}index.php/admin_config/' title='Edit Website Config'>Website Config</li>
+                        </ul>
                     <li><a href='{$site_url}index.php/memberslist/' title='Members List'>Members</a></li>
                     <li><a href='{$site_url}index.php/logout/' title='Logout Of Your Account'>Logout</a></li>
                 </ol>
@@ -46,8 +51,10 @@ switch ($user_level)
                 <ol>
                     <li><a href='{$site_url}index.php/' title='Home'>Home</a></li>
                     <li><a href='{$site_url}index.php/members/' title='Members Dashboard'>Members Dashboard</a></li>
-                    <li><a href='{$site_url}index.php/members_email/' title='Change your email address'>Change your email</a></li>
-                    <li><a href='{$site_url}index.php/members_password/' title='Change your password'>Change your password</a></li>
+                        <ul>
+                        <li><a href='{$site_url}index.php/members_email/' title='Change your email address'>Change your email</a></li>
+                        <li><a href='{$site_url}index.php/members_password/' title='Change your password'>Change your password</a></li>
+                        </ul>
                     <li><a href='{$site_url}index.php/memberslist/' title='Members List'>Members</a></li>
                     <li><a href='{$site_url}index.php/logout/' title='Logout Of Your Account'>Logout</a></li>
                 </ol>

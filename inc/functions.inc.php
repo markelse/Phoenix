@@ -69,6 +69,7 @@ function logout()
 }
 
 function get_page_header() {
+    global $site_name;
     include 'inc/templates/default/header.php';
 }
 
@@ -82,8 +83,8 @@ function get_page_sidebar() {
 }
 
 function get_site_header() {
-    global $site_header;
-    echo "<img src='/php/1/inc/templates/default/images/logo-icon.gif' border='0' style='float:left' /> <h1>{$site_header}</h1>";
+    global $site_name;
+    echo "<img src='/php/1/inc/templates/default/images/logo-icon.gif' border='0' style='float:left' /> <h1>{$site_name}</h1>";
 }
 
 // Include sitewide error codes

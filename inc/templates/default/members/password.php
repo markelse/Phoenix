@@ -32,7 +32,9 @@ echo "
                            <td colspan='2'><input name='submit' type='submit' value='Change Password' /></td>
                        </tr>
                     </table>
-              </form>";
+              </form>
+              
+            <p>After you change your password you will need to re-login, this ensures that any session data is destroyed and a new session is created when you re-login.</p>";
 
 // If submit has been clicked attempt to make the change
 if(isset($_POST['submit'])) {
@@ -75,14 +77,13 @@ if(isset($_POST['submit'])) {
     $hash = hash('sha256', $salt . $hash);
     
     // If there are no error then go ahead and update the email address.
-    $add = mysqli_query($con,"UPDATE  `phoenix`.`users` SET  `password` = '$hash', `salt` =  '$salt' WHERE `username` = '$username'");
+    $add = mysqli_query($con,"UPDATE users SET password = '$hash', salt = '$salt' WHERE username = '$username'");
     mysqli_close($con);
     
     $site_url = $site_url."index.php/login/";
-    $message = "Your password was successfully changed, please re-login.";
+    
     // Logs out the user and destroys the session.
     logout();
-    
     }
 
 } 
