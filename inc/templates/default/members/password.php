@@ -80,7 +80,7 @@ if(isset($_POST['submit'])) {
     $add = mysqli_query($con,"UPDATE users SET password = '$hash', salt = '$salt' WHERE username = '$username'");
     mysqli_close($con);
     
-    $site_url = $site_url."index.php/login/";
+    $site_url = $site_url."login/";
     
     // Logs out the user and destroys the session.
     logout();

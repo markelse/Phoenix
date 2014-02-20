@@ -3,14 +3,18 @@
  * Phoenix PHP was designed by Mark Else and is Copyrighted.
  * If you wish to use this script then please contact me at djtheropy@gmail.com.
  */
+?>
+
+<div class='container'>
+    <main class='content'>
+
+<?php
+if(!isset($_POST['submit'])) {
 
 // This displays a message (if set). An example can be found when a guest/member visits an admin page
 // If they do they will see the login form along with a restricted page message.
 // If no message has been set, nothing will display.
-
-// Display the login form
-echo "<div class='container'>
-	<main class='content'>
+echo "
         <p>";
 
             if(!isset($message)){
@@ -18,9 +22,10 @@ echo "<div class='container'>
             } else {
                 echo $message;
             }
-           
-echo "</p>
-               <form name='login' method='POST' action='#'>
+ echo "</p>";
+ 
+// Display the login form           
+echo "               <form name='login' method='POST' action='#'>
                   <table>
                       <tr>
                           <td width='150'>Username:</td>
@@ -38,7 +43,7 @@ echo "</p>
         ";
 
 // If submit has been clicked attempt to login the user
-if(isset($_POST['submit'])) {
+} else {
     
     // Prepare data for login process
     $username   = stripslashes($_POST['username']);

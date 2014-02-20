@@ -18,16 +18,15 @@ if(!isLoggedIn()) {
     // Displays the login form
     include 'inc/templates/default/login.php';
 } else {
-    include 'inc/templates/default/members/members.php';
+    echo "You are already logged in.";
 }
 
 // Display the sidebar
-get_page_sidebar();
+include 'inc/templates/default/sidebar.php';
 ?>	
-
 </div>
 
 <?php
 // Display the page footer
-get_page_footer();
+include 'inc/templates/default/footer.php';
 ?>

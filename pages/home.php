@@ -18,12 +18,11 @@ get_page_header();
 include 'inc/templates/default/home.php';
 
 // Display the sidebar
-get_page_sidebar();
+include 'inc/templates/default/sidebar.php';
 ?>	
-
-	</div>
+</div>
 
 <?php
 // Display the page footer
-get_page_footer();
+include 'inc/templates/default/footer.php';
 ?>

@@ -3,12 +3,12 @@
  * Phoenix PHP was designed by Mark Else and is Copyrighted.
  * If you wish to use this script then please contact me at djtheropy@gmail.com.
  */
-        
-// Display the change email form.
 echo "
     <div class='container'>
-	<main class='content'>
-                <form name='register' method='POST' action='#'>
+	<main class='content'>";
+if(!isset($_POST['submit'])) {
+// Display the change email form.
+  echo "              <form name='register' method='POST' action='#'>
                     <table>
                        <tr>
                            <td width='150'>Password :</td>
@@ -29,7 +29,7 @@ echo "
               </form>";
 
 // If submit has been clicked attempt to make the change
-if(isset($_POST['submit'])) {
+} else {
     
     // Prepare the user data for the registration process
     // This functions runs the user input through stripslashes and mysqli_real_escape_string   
@@ -68,7 +68,7 @@ if(isset($_POST['submit'])) {
     } else {
     
     // If there are no error then go ahead and update the email address.
-    $add = mysqli_query($con,"UPDATE  `phoenix`.`users` SET  `email` =  '$email' WHERE `username` = '$username'");
+    $add = mysqli_query($con,"UPDATE users SET email =  '$email' WHERE username = '$username'");
     echo "Your email address has been changed, your new email address is {$email}.";
     mysqli_close($con);
     

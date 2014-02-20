@@ -25,7 +25,7 @@
     {
         echo "
                 <tr>
-                    <td><a href='{$site_url}index.php?page=member_edit&id={$row["id"]}'>{$row["id"]}</a></td>
+                    <td><a href='{$site_url}member_edit/{$row["id"]}/'>{$row["id"]}</a></td>
                     <td>{$row["username"]}</td>
                     <td>{$row["email"]}</td>
                     <td>{$row["user_level"]}</td>

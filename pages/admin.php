@@ -8,8 +8,7 @@
 require 'inc/functions.inc.php';
 require 'inc/db.inc.php';
 
-// Regenerate a new session id for added security
-session_regenerate_id(true);
+regenerate_session_id(5);
 
 // Display the page header.
 get_page_header();
@@ -21,8 +20,6 @@ get_page_header();
 include 'inc/reuse/query_user_level.php';
 
 /**** Checks to see what user_level the visitor is
- *  Remember
- * Logged out, non-registered members do not have a user_level
  * Normal members have a user_level of 1
  * Admin members have a user_level of 5
  * so case "5" would mean if user_level is equal to 5
@@ -45,12 +42,11 @@ switch ($user_level)
     }
     
 // Display the sidebar
-get_page_sidebar();
+include 'inc/templates/default/sidebar.php';
 ?>	
-
-	</div>
+</div>
 
 <?php
 // Display the page footer
-get_page_footer();
+include 'inc/templates/default/footer.php';
 ?>

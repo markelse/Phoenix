@@ -18,14 +18,14 @@ if(!isLoggedIn()) {
     // Display the registration form
     include 'inc/templates/default/register.php';
 } else {
-    include 'inc/templates/default/members/members.php';
+    echo "You already have an account, should you want to register another you will first need to log out.";
 }
 // Display the sidebar
-get_page_sidebar();
+include 'inc/templates/default/sidebar.php';
 ?>	
 </div>
 
 <?php
 // Display the page footer
-get_page_footer();
+include 'inc/templates/default/footer.php';
 ?>

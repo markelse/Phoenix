@@ -6,6 +6,29 @@
 
 // Starts a new session
 session_start();
+if(!isset($_SESSION['regenerate_id'])) {
+   $_SESSION['regenerate_id'] = 0;
+}
+
+// This function regenerates session id's based on the security level of the page, 
+// Members email and password change pages $regenerate_id = 1
+// Any admin pages $regenerate_id = 5
+function regenerate_session_id($regenerate_id) {
+    if($_SESSION['regenerate_id'] !== $regenerate_id) {
+        session_regenerate_id (TRUE);
+        $_SESSION['regenerate_id'] = $regenerate_id;    
+    }
+}
+
+// Validates a login session
+function validateUser()
+{
+    global $con;
+    $_SESSION['valid'] = 1;
+    $_SESSION['username'] = stripslashes($_POST['username']);
+        
+    echo "You have logged in!";
+}
 
 // Include sitewide variable
 include 'variables.inc.php';
@@ -15,29 +38,6 @@ function createSalt()
 {
     $string = md5(uniqid(rand(), true));
     return substr($string, 0, 3);
-}
-
-// Validates a login session
-function validateUser()
-{
-    global $con;
-    
-    session_regenerate_id (TRUE);
-    $_SESSION['valid'] = 1;
-    $_SESSION['username'] = stripslashes($_POST['username']);
-    
-    include 'inc/reuse/query_user_level.php'; 
-
-         if($row['user_level'] == 5) 
-         { 
-            header('Location: ../admin/');
-            
-         } else { 
-             
-            header('Location: ../members/');
-
-            } 
-    
 }
 
 function get_username() {
@@ -64,27 +64,14 @@ function logout()
    $_SESSION = array();
     unset($_SESSION['valid']);
     unset($_SESSION['username']);
+    unset($_SESSION['regenerate_id']);
     session_destroy();
     header("Location: {$site_url}");
 }
 
 function get_page_header() {
-    global $site_name;
+    global $site_name,$site_url;
     include 'inc/templates/default/header.php';
-}
-
-function get_page_footer() {
-    include 'inc/templates/default/footer.php';
-}
-
-function get_page_sidebar() {
-    global $site_url;
-    include 'inc/templates/default/sidebar.php'; 
-}
-
-function get_site_header() {
-    global $site_name;
-    echo "<img src='/php/1/inc/templates/default/images/logo-icon.gif' border='0' style='float:left' /> <h1>{$site_name}</h1>";
 }
 
 // Include sitewide error codes

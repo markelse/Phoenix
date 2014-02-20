@@ -10,8 +10,8 @@
         <h2>Welcome <?php get_username(); ?></h2>
         <p>Thanks for logging in, here is a list of things that you can do;</p>
         <ol>
-            <li><a href='<?php echo $site_url; ?>index.php/members_email/'>Change your email</a></li>
-            <li><a href='<?php echo $site_url; ?>index.php/memberslist/'>View the members list</a></li>
+            <li><a href='<?php echo $site_url; ?>members_email/'>Change your email</a></li>
+            <li><a href='<?php echo $site_url; ?>memberslist/'>View the members list</a></li>
         </ol> 
     </main>
 </div>

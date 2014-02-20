@@ -8,19 +8,16 @@
 <aside class="left-sidebar">
     <h3>Site Menu</h3>
 <?php
-// Since this is a stand-alone template file we need to call the db connection info
-require 'inc/db.inc.php';
-
 // Query the database to find out what user level the member is.
+require 'inc/db.inc.php';
 include 'inc/reuse/query_user_level.php';
 
 /**** Checks to see what user_level the visitor is
- *  Remember
- * Logged out, non-registered members do not have a user_level
  * Normal members have a user_level of 1
  * Admin members have a user_level of 5
  * so case "5" would mean if user_level is equal to 5
 ******/
+
 switch ($user_level)
     {
         // Displays the members menu
@@ -28,18 +25,18 @@ switch ($user_level)
         case "5":
             echo "
                 <ol>
-                    <li><a href='{$site_url}index.php/' title='Home'>Home</a></li>
-                    <li><a href='{$site_url}index.php/members/' title='Members Dashboard'>Members Dashboard</a></li>
+                    <li><a href='{$site_url}' title='Home'>Home</a></li>
+                    <li><a href='{$site_url}members/' title='Members Dashboard'>Members Dashboard</a></li>
                         <ul>
-                        <li><a href='{$site_url}index.php/members_email/' title='Change your email address'>Change your email</a></li>
-                        <li><a href='{$site_url}index.php/members_password/' title='Change your password'>Change your password</a></li>
+                        <li><a href='{$site_url}members_email/' title='Change your email address'>Change your email</a></li>
+                        <li><a href='{$site_url}members_password/' title='Change your password'>Change your password</a></li>
                         </ul>
-                    <li><a href='{$site_url}index.php/admin/' title='Admin Dashboard'>Admin Dashboard</a></li>
+                    <li><a href='{$site_url}admin/' title='Admin Dashboard'>Admin Dashboard</a></li>
                         <ul>
-                        <li><a href='{$site_url}index.php/admin_config/' title='Edit Website Config'>Website Config</li>
+                        <li><a href='{$site_url}admin_config/' title='Edit Website Config'>Website Config</li>
                         </ul>
-                    <li><a href='{$site_url}index.php/memberslist/' title='Members List'>Members</a></li>
-                    <li><a href='{$site_url}index.php/logout/' title='Logout Of Your Account'>Logout</a></li>
+                    <li><a href='{$site_url}memberslist/' title='Members List'>Members</a></li>
+                    <li><a href='{$site_url}logout/' title='Logout Of Your Account'>Logout</a></li>
                 </ol>
              ";
             break;
@@ -49,14 +46,14 @@ switch ($user_level)
         case "1":
             echo "
                 <ol>
-                    <li><a href='{$site_url}index.php/' title='Home'>Home</a></li>
-                    <li><a href='{$site_url}index.php/members/' title='Members Dashboard'>Members Dashboard</a></li>
+                    <li><a href='{$site_url}' title='Home'>Home</a></li>
+                    <li><a href='{$site_url}members/' title='Members Dashboard'>Members Dashboard</a></li>
                         <ul>
-                        <li><a href='{$site_url}index.php/members_email/' title='Change your email address'>Change your email</a></li>
-                        <li><a href='{$site_url}index.php/members_password/' title='Change your password'>Change your password</a></li>
+                        <li><a href='{$site_url}members_email/' title='Change your email address'>Change your email</a></li>
+                        <li><a href='{$site_url}members_password/' title='Change your password'>Change your password</a></li>
                         </ul>
-                    <li><a href='{$site_url}index.php/memberslist/' title='Members List'>Members</a></li>
-                    <li><a href='{$site_url}index.php/logout/' title='Logout Of Your Account'>Logout</a></li>
+                    <li><a href='{$site_url}memberslist/' title='Members List'>Members</a></li>
+                    <li><a href='{$site_url}logout/' title='Logout Of Your Account'>Logout</a></li>
                 </ol>
              ";  
             break;
@@ -65,9 +62,9 @@ switch ($user_level)
         default:
         echo "
                 <ol>
-                    <li><a href='{$site_url}index.php/' title='Home'>Home</a></li>
-                    <li><a href='{$site_url}index.php/login/' title='Login To Your Account'>Login</a></li>
-                    <li><a href='{$site_url}index.php/register/' title='Register For An Account'>Register</a></li>
+                    <li><a href='{$site_url}' title='Home'>Home</a></li>
+                    <li><a href='{$site_url}login/' title='Login To Your Account'>Login</a></li>
+                    <li><a href='{$site_url}register/' title='Register For An Account'>Register</a></li>
                 </ol>
              ";
     } 

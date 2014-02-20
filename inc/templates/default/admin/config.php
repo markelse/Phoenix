@@ -53,7 +53,7 @@ if(!isset($_POST['submit'])) {
             mysqli_close($con);
         
         // Display a message upon successfull update.
-        echo "Your site config information has been updated, <a href='{$site_url}index.php/admin_config/'>click here</a> to reload the config page.";
+        echo "Your site config information has been updated, <a href='{$site_url}admin_config/'>click here</a> to reload the config page.";
 }
 ?>
     </main>

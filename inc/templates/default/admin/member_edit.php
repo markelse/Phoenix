@@ -76,7 +76,7 @@ if(isset($_POST['submit'])) {
             mysqli_close($con);
         
         // Display a message upon successfull update.
-        echo "The selected user ({$username}) has been updated, please refresh the page to see the changes.";
+        echo "The selected user ({$username}) has been updated, please reload the page to see the changes.";
          }    
 }
 ?>

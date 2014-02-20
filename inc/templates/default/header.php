@@ -16,7 +16,6 @@
        <div class="wrapper">
             <header class="header">
                <?php
-                    // This function will include the site logo
-                    get_site_header();
+    echo "<img src='{$site_url}inc/templates/default/images/logo-icon.gif' border='0' style='float:left' /> <h1>{$site_name}</h1>";
                ?> 
             </header>

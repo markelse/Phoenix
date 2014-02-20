@@ -7,22 +7,24 @@ I decided to build this script because I needed to make a script for a project o
 Since the initial release I have build on the foundation of the registration and login functions and Phoenix now has;
 
 1. Ability to allow visitors to register.
-2. Ability to login.
+2. Ability to login/logout using sessions.
 3. Dedicated section for members.
-..1. Ability to change email address
-4. Dedicated section for Admin members (currently must be set via the database) admin = user_level 5
-5. Works with .htaccess & mod_rewrite to provide SEF urls.
+4. Ability to change email address and passwords once logged in.
+5. Dedicated section for Admin members (currently must be set via the database) admin = user_level 5
+6. Ability to edit users and update site config from the admin backend.
+7. Works with .htaccess & mod_rewrite to provide SEF urls. (domain.com/page_name/)
 
 Phoenix also separates template files from code so that it is easy to update the look and feel of the script without having to worry about deleting important functions/code.
 
 ## Please Note!!
-Currently the Phoenix script run on PHP & MYSQL *and has currently only been tested locally on a development server*, the script may contain errors and may have security holes, you are advised to fully test this script before using it in a productive environment.
+Currently the Phoenix script runs on PHP & MYSQL *and has only been tested locally on a development server and one 1 live server running PHP 5.4 & MYSQL 5.5*, the script may contain errors and may have security holes, 
+you are advised to fully test this script before using it in a productive environment.
 
 ### Installation
 
 1. Open up phpmyadmin (or command or similar database admin tool).
-..1. Run the provided SQL.
-2. Visit the inc/functions.inc.php & inc/variable.inc.php files and change install paths, site name etc
+2. Run the provided SQL.
+3. Open phpmyadmin (or similar database tool) and fill out the default site info in the config table.
 3. Register a new member.
 4. Open up phpmyadmin again and find the user that you have just registered and change the user_level entry from 1 to 5, this will make you an admin.
 5. Login to your account and check that it is working OK.
@@ -43,3 +45,4 @@ Currently the Phoenix script run on PHP & MYSQL *and has currently only been tes
 12. Add a site search.
 13. Improve the look of the default template.
 14. Incorporate 3rd party login scripts such as Facebook Connect & openID.
+15. Ability to automate the install process.
