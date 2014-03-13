@@ -1,37 +1,36 @@
 <?php
-/* 
- * Phoenix PHP was designed by Mark Else and is Copyrighted.
- * If you wish to use this script then please contact me at djtheropy@gmail.com.
- */
+require 'inc/functions.inc.php';
+require 'inc/db.inc.php';
 
-// This file controls which page has been clicked on and dynamically displays the selected page.
+// Uses $_GET to set which page should be displayed.
+if(isset($_GET['page']) && isset($_GET['sub'])) {
+    $page = mysqli_real_escape_string($con, $_GET['page']);
+    $sub = mysqli_real_escape_string($con, $_GET['sub']);
+} else {
+    // If $_GET is not set then it must be the homepage.
+    $page = "home";
+    $sub = $page;
+}
 
-// This is the default page that is shown, it should ideally display your homepage.
-// $page = "home"; would display /pages/home.php
-$page = "home";
-$page_dir = "pages";
+// Run the query and create an array named $page2[]
+$query_page = mysqli_query($con,"SELECT * FROM pages WHERE title = '$sub' AND category = '$page'");
+$page_sel = mysqli_fetch_array($query_page);
 
-// Checks to see if $_GET['page'] has been set.
-if(isset($_GET['page'])) {
+// Give the array rows easy to remember variable names.
+$page_title         = $page_sel["title"];
+$page_excerpt       = $page_sel["excerpt"];
+$page_body          = $page_sel["body"];
+$page_category      = $page_sel["category"];
+
+//$query_config = mysqli_query($con,"SELECT * FROM config");
+//$config = mysqli_fetch_array($query_config, MYSQLI_ASSOC);
+
+// Checks to see if the file being refferenced by $_GET actually exists
+// If it does not we want to show the homepage (or error page) instead.
+if (!file_exists("inc/templates/{$site_theme}/{$page}.php")) {
+    $page = "error";
+    $sub = $page;
+}
     
-    // Defines $page to $_GET
-    $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_STRING);
-    
-    // basename() prevents visitors from changing directorys
-    // this means that only pages in $page_dir can be viewed
-    $page = basename($page);
-    
-    // Checks to see if the file being refferenced by $_GET actually exists
-    // If it does not we want to show the homepage (or error page) instead.
-    if (!file_exists("{$page_dir}/{$page}.php")) {
-        
-        // Set which page should be displayed if the chosen page does not exists
-        // If user tries to access anything outside of $page_dir or tries to access a
-        // file that does not exists an error page will be shown.
-        // $page = "error"; refers to pages/error.php
-        $page = "error";
-    }
-} 
-    
-    // Include the file that will be viewed in the visitors browser.
-    include("{$page_dir}/{$page}.php");
+// If all is good this will return the template file.
+include "inc/templates/{$site_theme}/{$page}.php";

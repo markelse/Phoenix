@@ -1,3 +1,23 @@
+V 1.0
+ - Re-coded the way that pages are displayed.
+ - Re-coded the way that page URLS are displayed. (Now shows as domain.com/category/page/)
+ - Added ability to add new pages directly from the admin dashboard.
+ - Updated various bits of code to be more efficient.
+ - Removed various files/bits of code which were now redundant.
+ - Formatted (indented) the code using 4 spaces to replace Tabs.
+ - Added TinyMCE to the add a page template, along with in-line editor.
+ - If adding a new page and their is an error Phoenix uses sessions to remember what had been entered.
+ - Added basic error checking to the add a page template.
+ - Added function menu_items() which controls which user created pages are shown, for e.g. menu_items("Home") would show all pages created under the category "Home".
+ - Added animated error/success messages to improve notification messages that sometimes get hidden when displayed as plain text.
+ - Added function user_message() to control what message gets displayed. user_message("success","Complete","Page Edited Successfully"); would show the success message with Complete as the title and page edited successfully as the message.
+ - Ability to change the site theme via the site config page.
+ - Better organised the error messages.
+ - Updated the footer template.
+ - Fixed error with URL off login/logout pages.
+ - Created an auto-installer.
+
+
 V 0.3.7 (20th Feb 14)
  - First test on a live website.
  - Fixed logo image path.

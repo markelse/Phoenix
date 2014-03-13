@@ -1,9 +1,4 @@
 <?php
-/* 
- * Phoenix PHP was designed by Mark Else and is Copyrighted.
- * If you wish to use this script then please contact me at djtheropy@gmail.com.
- */
-
 // Sets the database information
 $db_host = "localhost";
 $db_name = "phoenix";

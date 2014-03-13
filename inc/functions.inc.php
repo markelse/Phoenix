@@ -1,13 +1,8 @@
 <?php
-/* 
- * Phoenix PHP was designed by Mark Else and is Copyrighted.
- * If you wish to use this script then please contact me at djtheropy@gmail.com.
- */
-
 // Starts a new session
 session_start();
 if(!isset($_SESSION['regenerate_id'])) {
-   $_SESSION['regenerate_id'] = 0;
+    $_SESSION['regenerate_id'] = 0;
 }
 
 // This function regenerates session id's based on the security level of the page, 
@@ -21,8 +16,7 @@ function regenerate_session_id($regenerate_id) {
 }
 
 // Validates a login session
-function validateUser()
-{
+function validateUser() {
     global $con;
     $_SESSION['valid'] = 1;
     $_SESSION['username'] = stripslashes($_POST['username']);
@@ -34,8 +28,7 @@ function validateUser()
 include 'variables.inc.php';
 
 // Creates a random 3 character sequence, used to add a salt to passwords
-function createSalt()
-{
+function createSalt() {
     $string = md5(uniqid(rand(), true));
     return substr($string, 0, 3);
 }
@@ -49,22 +42,24 @@ function get_username() {
 }
 
 // Checks if a user is logged into the site
-function isLoggedIn()
-{
+function isLoggedIn() {
     if(isset($_SESSION['valid']) && $_SESSION['valid'])
         return true;
     return false;
 }
 
 // Logs out the user and destroys all session data
-function logout()
-{
+function logout() {
    global $site_url;
    
    $_SESSION = array();
     unset($_SESSION['valid']);
     unset($_SESSION['username']);
     unset($_SESSION['regenerate_id']);
+    unset($_SESSION['p_title']);
+    unset($_SESSION['p_excerpt']);
+    unset($_SESSION['p_body']);
+    unset($_SESSION['p_category']);
     session_destroy();
     header("Location: {$site_url}");
 }
@@ -74,6 +69,40 @@ function get_page_header() {
     include 'inc/templates/default/header.php';
 }
 
+// Generates a secure random password.
+            $random_LC = substr(str_shuffle("abcdefghjkmnpqrstuvwxyz"), 0, 2);
+            $random_UC = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ"), 0, 2);
+            $random_NC = substr(str_shuffle("2345678923456789"), 0, 4);
+            $random_SC = substr(str_shuffle("@#[]{}()&@"), 0, 1);
+            $random_SC2 = substr(str_shuffle("@#]})&@"), 0, 1);
+            
+            $random_PW = substr("$random_SC$random_LC$random_UC$random_NC$random_SC2",0, 10);
+            
+            $random_LC = substr(str_shuffle("abcdefghjkmnpqrstuvwxyz"), 0, 2);
+            $random_UC = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ"), 0, 2);
+            $random_NC = substr(str_shuffle("2345678923456789"), 0, 4);
+            $random_SC = substr(str_shuffle("@#[]{}()&@"), 0, 1);
+            $random_SC2 = substr(str_shuffle("@#]})&@"), 0, 1);
+            
+            $random_PW2 = substr("$random_SC$random_LC$random_UC$random_NC$random_SC2",0, 10);
+            
+            $random_LC = substr(str_shuffle("abcdefghjkmnpqrstuvwxyz"), 0, 2);
+            $random_UC = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ"), 0, 2);
+            $random_NC = substr(str_shuffle("2345678923456789"), 0, 4);
+            $random_SC = substr(str_shuffle("@#[]{}()&@"), 0, 1);
+            $random_SC2 = substr(str_shuffle("@#]})&@"), 0, 1);
+            $random_PW3 = substr("$random_SC$random_LC$random_UC$random_NC$random_SC2",0, 10);
+ 
+ // Creates a notification based on type of message.
+ function user_message($msg_type,$msg_title,$msg) {
+     echo "
+         <div class='{$msg_type}'>
+          <h3>{$msg_title}</h3>
+          <p>{$msg}</p>
+         </div>";
+ }
+ 
+
 // Include sitewide error codes
 include 'errors.inc.php';
-
+include 'queries.inc.php';

@@ -1,74 +1,78 @@
+<aside class="left-sidebar"><div id='menu'>
 <?php
-/* 
- * Phoenix PHP was designed by Mark Else and is Copyrighted.
- * If you wish to use this script then please contact me at djtheropy@gmail.com.
- */
-?>
+    // Query the database to find out what user level the member is.
+    require 'inc/db.inc.php';
+    include 'inc/reuse/query_user_level.php';
 
-<aside class="left-sidebar">
-    <h3>Site Menu</h3>
-<?php
-// Query the database to find out what user level the member is.
-require 'inc/db.inc.php';
-include 'inc/reuse/query_user_level.php';
-
-/**** Checks to see what user_level the visitor is
- * Normal members have a user_level of 1
- * Admin members have a user_level of 5
- * so case "5" would mean if user_level is equal to 5
-******/
-
-switch ($user_level)
-    {
-        // Displays the members menu
-        // case "5" would mean is user_level is equal to 5
-        case "5":
-            echo "
-                <ol>
-                    <li><a href='{$site_url}' title='Home'>Home</a></li>
-                    <li><a href='{$site_url}members/' title='Members Dashboard'>Members Dashboard</a></li>
-                        <ul>
-                        <li><a href='{$site_url}members_email/' title='Change your email address'>Change your email</a></li>
-                        <li><a href='{$site_url}members_password/' title='Change your password'>Change your password</a></li>
-                        </ul>
-                    <li><a href='{$site_url}admin/' title='Admin Dashboard'>Admin Dashboard</a></li>
-                        <ul>
-                        <li><a href='{$site_url}admin_config/' title='Edit Website Config'>Website Config</li>
-                        </ul>
-                    <li><a href='{$site_url}memberslist/' title='Members List'>Members</a></li>
-                    <li><a href='{$site_url}logout/' title='Logout Of Your Account'>Logout</a></li>
-                </ol>
-             ";
-            break;
-        
-        // Displays the members menu
-        // case "1" would mean is user_level is equal to 1
-        case "1":
-            echo "
-                <ol>
-                    <li><a href='{$site_url}' title='Home'>Home</a></li>
-                    <li><a href='{$site_url}members/' title='Members Dashboard'>Members Dashboard</a></li>
-                        <ul>
-                        <li><a href='{$site_url}members_email/' title='Change your email address'>Change your email</a></li>
-                        <li><a href='{$site_url}members_password/' title='Change your password'>Change your password</a></li>
-                        </ul>
-                    <li><a href='{$site_url}memberslist/' title='Members List'>Members</a></li>
-                    <li><a href='{$site_url}logout/' title='Logout Of Your Account'>Logout</a></li>
-                </ol>
-             ";  
-            break;
-        
-        // If they are not logged in display the guest menu with login and register links.
-        default:
+switch ($user_level) {
+    // Displays the members menu
+    // case "5" would mean is user_level is equal to 5
+    case "5":
+        // Display a message upon successfull update.
         echo "
-                <ol>
-                    <li><a href='{$site_url}' title='Home'>Home</a></li>
-                    <li><a href='{$site_url}login/' title='Login To Your Account'>Login</a></li>
-                    <li><a href='{$site_url}register/' title='Register For An Account'>Register</a></li>
-                </ol>
-             ";
-    } 
-
-
+            <ul>
+                <li><strong>Site Navigation</strong></li>
+                    <ul>";
+                        menu_items("Home");
+              echo "</ul>
+                <li><strong><a href='{$site_url}members/' title='Members Dashboard'>Members Dashboard</a></strong></li>
+                    <ul>
+                        <li class='indent'><a href='{$site_url}members/change_email/' title='Change your email address'>Change your email</a></li>
+                        <li class='indent'><a href='{$site_url}members/change_password/' title='Change your password'>Change your password</a></li>
+                        <li class='indent'><a href='{$site_url}members/memberslist/' title='Members List'>Members</a></li>
+                    </ul>
+                <li><strong><a href='{$site_url}admin/' title='Admin Dashboard'>Admin Dashboard</a></strong></li>
+                    <ul>
+                        <li class='indent'><a href='{$site_url}admin/page_add/' title='Add a page'>Add Page</a></li>
+                        <li class='indent'><a href='{$site_url}admin/page_view/' title='View pages'>View/Edit Pages</a></li>
+                        <li class='indent'><a href='{$site_url}admin/config/' title='Edit Website Config'>Website Config</a></li>
+                        <li class='indent'><a href='{$site_url}admin/memberslist/' title='Members List'>Members</a></li>
+                    </ul>
+                <li><strong>Other Pages</strong></li>
+                    <ul>
+                        <li class='indent'><a href='{$site_url}logout.php' title='Logout Of Your Account'>Logout</a></li>
+                    </ul>
+            </ul>";
+                break;
+        
+    // Displays the members menu
+    // case "1" would mean is user_level is equal to 1
+    case "1":
+        echo "
+            <ul>
+                <li><strong>Site Navigation</strong></li>
+                    <ul>";
+                        menu_items("Home");
+              echo "</ul>
+                <li><a href='{$site_url}' title='Home'>Home</a></li>
+                <li><a href='{$site_url}members/' title='Members Dashboard'>Members Dashboard</a></li>
+                    <ul>
+                        <li class='indent'><a href='{$site_url}members/change_email/' title='Change your email address'>Change your email</a></li>
+                        <li class='indent'><a href='{$site_url}members/change_password/' title='Change your password'>Change your password</a></li>
+                        <li class='indent'><a href='{$site_url}members/memberslist/' title='Members List'>Members</a></li>
+                    </ul>
+                <li><strong>Other Pages</strong></li>
+                    <ul>
+                        <li class='indent'><a href='{$site_url}logout.php' title='Logout Of Your Account'>Logout</a></li>
+                    </ul>
+            </ul>";  
+                break;
+        
+    // If they are not logged in display the guest menu with login and register links.
+    default:
+        echo "
+            <ul>
+                <li><strong>Site Navigation</strong></li>
+                    <ul>";
+                        menu_items("Home");
+              echo "</ul>
+                <li><strong>Other Pages</strong></li>
+                    <ul>
+                        <li class='indent'><a href='{$site_url}login.php' title='Login To Your Account'>Login</a></li>
+                        <li class='indent'><a href='{$site_url}register.php' title='Register For An Account'>Register</a></li>
+                    </ul>
+            </ul>";
+} 
 ?>
+    </div>
 </aside>

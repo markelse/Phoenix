@@ -1,3 +1,9 @@
+/* 
+ * Phoenix PHP was designed by Mark Else and is Licensed under The MIT License (MIT)
+ * You can find the latest updates at https://github.com/markelse/Phoenix
+ * If you have any suggestions or wish to ask me anything you can contact me at djtheropy@gmail.com.
+ */
+
 The MIT License (MIT)
 
 Copyright (c) 2014 Mark Else

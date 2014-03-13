@@ -10,15 +10,17 @@ Since the initial release I have build on the foundation of the registration and
 2. Ability to login/logout using sessions.
 3. Dedicated section for members.
 4. Ability to change email address and passwords once logged in.
-5. Dedicated section for Admin members (currently must be set via the database) admin = user_level 5
-6. Ability to edit users and update site config from the admin backend.
-7. Works with .htaccess & mod_rewrite to provide SEF urls. (domain.com/page_name/)
+5. Dedicated section for Admin members
+6. Ability to edit users from the admin backend.
+7. Ability to add pages and edit pages from the admin backend.
+8. Ability to update site config from the admin backend.
+7. Works with .htaccess & mod_rewrite to provide SEF urls. (domain.com/category/page_name/)
 
-Phoenix also separates template files from code so that it is easy to update the look and feel of the script without having to worry about deleting important functions/code.
+Phoenix CMS is also template based so that it is easy to update the look and feel of the script without having to worry about deleting important functions/code.
 
 ## Please Note!!
-Currently the Phoenix script runs on PHP & MYSQL *and has only been tested locally on a development server and one 1 live server running PHP 5.4 & MYSQL 5.5*, the script may contain errors and may have security holes, 
-you are advised to fully test this script before using it in a productive environment.
+Currently the Phoenix script runs on PHP & MYSQL *and has only been tested locally on a development server and 1 live server running PHP 5.4 & MYSQL 5.5*, the script may contain errors and may have security holes, 
+you are advised to fully test this script before using it in a productive environment. The script has also only been tested in the Chrome browser.
 
 ### Installation
 
@@ -27,22 +29,5 @@ you are advised to fully test this script before using it in a productive enviro
 3. Open phpmyadmin (or similar database tool) and fill out the default site info in the config table.
 3. Register a new member.
 4. Open up phpmyadmin again and find the user that you have just registered and change the user_level entry from 1 to 5, this will make you an admin.
-5. Login to your account and check that it is working OK.
-
-### TO DO
-
-1. ~~Add an admin area.~~
-2. Allow for user control (Add, ~~edit~~ & Delete)
-3. ~~Allow for site config items to be edited in the admin (Site title etc)~~
-4 ~~Create a user dashboard.~~
-5. Allow for password resets by email.
-6. ~~Allow logged-in users the ability to change their password.~~
-7. ~~Allow logged-in users the ability to change their email.~~
-8. ~~Allow for user roles.~~
-9. Support for back-end content creation (Like a CMS).
-10. Along with WYSIWYG editing.
-11. & content syndication.
-12. Add a site search.
-13. Improve the look of the default template.
-14. Incorporate 3rd party login scripts such as Facebook Connect & openID.
-15. Ability to automate the install process.
+5. Edit .htaccess and change your site path to match what you have entered in config.
+6. Login to your account and check that it is working OK.
