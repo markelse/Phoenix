@@ -38,28 +38,29 @@ if(isset($_POST['submit'])) {
                 Your current URL would look something like: <strong><span style='color:red'>{$site_url}</span><span style='color:green'>{$p_edit["category"]}</span>/<span style='color:blue'>{$p_edit["title"]}</span>/</strong></p>
             </tr>
             <tr>
-                <td width='60'>
-                <h3>Title:</h3>
-                </td>
+                <td width='60'><strong>Title:</strong></td>
                 <td>
                 <input class='edit' type='text' name='title' value='{$p_edit["title"]}'></td>
             </tr>
             <tr>
-                <td width='60'>
-                <h3>Excerpt:</h3>
-                </td>
+                <td colspan='2'>&nbsp;<td>
+            </tr>
+            <tr>
+                <td width='60'><strong>Excerpt:</strong></td>
                 <td><textarea rows='5' cols='50' name='excerpt'>{$p_edit["excerpt"]}</textarea></td>
             </tr>
             <tr>
-                <td width='60'>
-                <h3>Body:</h3>
-                </td>
+                <td colspan='2'>&nbsp;<td>
+            </tr>
+            <tr>
+                <td width='60'><strong>Body:</strong></td>
                 <td><textarea class='editable' rows='20' cols='50' name='body'>{$p_edit["body"]}</textarea></td>
             </tr>
             <tr>
-                <td width='60'>
-                <h3>Category:</h3>
-                </td>
+                <td colspan='2'>&nbsp;<td>
+            </tr>
+            <tr>
+                <td width='60'><strong>Category:</strong></td>
                 <td><input type='text' name='category' value='{$p_edit["category"]}'></td>
             </tr>
             <tr>

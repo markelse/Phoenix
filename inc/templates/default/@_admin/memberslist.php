@@ -8,12 +8,12 @@ echo "
                     
     <p>Here is a list of all the members that have registered for our website.</p>
                     
-    <table class='alt' width='100%' align='left'>
+    <table class='alt' align='left'>
         <tr>
-            <th align='left' width='5%'>ID</th>
-            <th align='left' width='25%'>Name</th>
-            <th align='left' width='45%'>Email</th>
-            <th align='left' width='5%'>Level</th>
+            <th align='left' width='32'>ID</th>
+            <th align='left' width='200'>Name</th>
+            <th align='left' width='300'>Email</th>
+            <th align='left' width='30'>Level</th>
         </tr>";
     
 // While there is still a member to dislay echo their details

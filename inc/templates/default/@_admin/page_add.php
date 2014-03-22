@@ -40,20 +40,29 @@ echo "
     <form name='add_page' method='POST' action='{$site_url}admin/page_add/'>
         <table>
             <tr>
-                <td>Title:</td>
-                <td><input name='title' type='text' value='{$_SESSION['p_title']}'  /><td>
-            </tr>    
+                <td width='95'><strong>Title</strong>:</td>
+                <td><input class='edit' name='title' type='text' value='{$_SESSION['p_title']}'  /><td>
+            </tr>
             <tr>
-                <td>Excerpt:</td>
+                <td colspan='2'>&nbsp;<td>
+            </tr>
+            <tr>
+                <td width='95'><strong>Excerpt</strong>:</td>
                 <td><textarea rows='4' cols='50' name='excerpt'>{$_SESSION['p_excerpt']}</textarea><td>
             </tr>
             <tr>
-                <td>Body:</td>
-                <td><textarea class='editable' rows='20' cols='50' name='body'>{$_SESSION['p_body']}</textarea><td>
+                <td colspan='2'>&nbsp;<td>
             </tr>
             <tr>
-                <td>Category:</td>
-                <td><input name='category' type='text' value='{$_SESSION['p_category']}' /><td>
+                <td width='95'><strong>Body</strong>:</td>
+                <td><textarea rows='20' cols='50' name='body'>{$_SESSION['p_body']}</textarea><td>
+            </tr>
+            <tr>
+                <td colspan='2'>&nbsp;<td>
+            </tr>
+            <tr>
+                <td width='95'><strong>Category</strong>:</td>
+                <td><input class='edit' name='category' type='text' value='{$_SESSION['p_category']}' /><td>
             </tr>
             <tr>
                 <td colspan='2'><input name='add_page' type='submit' value='Add a page' /></td>

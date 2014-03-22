@@ -1,13 +1,14 @@
 <?php
 require 'inc/functions.inc.php';
 require 'inc/db.inc.php';
+include "inc/templates/{$site_theme}/header.php";
 
-get_page_header();
-?>
-<div class='container'>
-    <main class='content'>
+include "inc/templates/{$site_theme}/l-sidebar.php";
 
-<?php
+
+echo "
+<div id='content'>";
+
 if(isset($_POST['submit'])) {
     // Prepare data for login process
     $username   = mysqli_real_escape_string($con, $_POST['username']);
@@ -37,7 +38,7 @@ if(isset($_POST['submit'])) {
     if(!isset($message)){
         echo "<p></p>";
     } else {
-        echo "<p>{$message}</p>";
+        user_message("info message","Information","$message");
     }
 
     if(!isLoggedIn()) {
@@ -59,12 +60,8 @@ if(isset($_POST['submit'])) {
             </table>
         </form>";
     }    
-    echo "</main></div>";
+echo "</div>";
+    
+include "inc/templates/{$site_theme}/r-sidebar.php";
 
-
-include 'inc/templates/default/sidebar.php';
-?>	
-</div>
-
-<?php
-include 'inc/templates/default/footer.php';
+include "inc/templates/{$site_theme}/footer.php";

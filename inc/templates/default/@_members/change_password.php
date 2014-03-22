@@ -46,9 +46,9 @@ if(isset($_POST['change_password'])) {
 
 echo "<h2>Change Your Password</h2>
             
-<p>Here you can change your password, After you change your password you will need to re-login, this ensures that any session data is destroyed and a new session is created when you re-login.</p>
+<p>Here you can change your password, after you have changed your password you will need to re-login, this ensures that any session data is destroyed and a new session is created when you re-login.</p>
         
-<p>For your security we require that you type in your current password before your can change to a new password.</p>
+<p>For your security we require that you type in your current password before your can change to a new password, this helps to prevent any unauthorised changes being made to your account.</p>
         
 <p>Your password should contain 1 lower-case, 1 upper-case, 1 numeric and 1 special character. It should ideally be over 8 characters in length. If you want you could use these randomly generated secure passwords:</p>
 
@@ -61,18 +61,18 @@ echo "<h2>Change Your Password</h2>
 <p>For ultimate password security you should use a random password that makes no sense (like the above) and have it saved to a password manager (most browsers have one build it). You should then set a master password on the password manager that is still secure but is easier to remember.</p>
 
 <form name='change_password' method='POST' action='{$site_url}members/change_password/'>
-    <table>
+    <table class='plain'>
         <tr>
-            <td width='250'>Current Password :</td>
-            <td><input name='password' type='password' /><td>
+            <td width='150'>Current Password :</td>
+            <td><input class='edit' name='password' type='password' /><td>
         </tr>
         <tr>
-            <td width='250'>New Password :</td>
-            <td><input name='passwordnew' type='password' /><td>
+            <td width='150'>New Password :</td>
+            <td><input class='edit' name='passwordnew' type='password' /><td>
         </tr>
         <tr>
-            <td width='250'>New Password (Again to avoid typos) :</td>
-            <td><input name='passwordnew2' type='password' /><td>
+            <td width='150'>Repeat Password :</td>
+            <td><input class='edit' name='passwordnew2' type='password' /><td>
         </tr>
         <tr>
             <td colspan='2'><input name='change_password' type='submit' value='Change Password' /></td>

@@ -65,8 +65,8 @@ function logout() {
 }
 
 function get_page_header() {
-    global $site_name,$site_url;
-    include 'inc/templates/default/header.php';
+    global $site_name,$site_url,$site_theme;
+    include "inc/templates/{$site_theme}/header.php";
 }
 
 // Generates a secure random password.

@@ -7,5 +7,4 @@
 - Add a site search.
 - Improve the look of the default template.
 - Incorporate 3rd party login scripts such as Facebook Connect & openID.
-- Ability to automate the install process.
 - Better control over created pages.

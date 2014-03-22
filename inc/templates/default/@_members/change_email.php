@@ -37,23 +37,27 @@ if(isset($_POST['change_email'])) {
     echo "
         <h2>Change Your Email</h2>
         
-        <p>Here you can change the email address that you used when you registered with our website.</p>
+        <p>Here you can change the email address that you used when you registered with our website, The email that you use must be a
+        valid email address.</p>
         
-        <p>For added security you must input your password in order to be able to change your email.</p>
+        <p>For added security you must input your current password in order to be able to change your email, this is done to help
+        prevent unauthorised changes being made to your account.</p>
+        
+        <p>You must also enter your email address twice to help prevent typo errors.</p>
             
             <form name='change_email' method='POST' action='{$site_url}members/change_email/'>
-                <table>
+                <table class='plain'>
                     <tr>
-                        <td width='150'>Password :</td>
-                        <td><input name='password' type='password' /><td>
+                        <td width='115'><strong>Password</strong>:</td>
+                        <td><input class='edit' name='password' type='password' /><td>
                     </tr>
                     <tr>
-                        <td width='150'>New Email:</td>
-                        <td><input name='email' type='text' /><td>
+                        <td width='115'><strong>New Email</strong>:</td>
+                        <td><input class='edit' name='email' type='text' /><td>
                     </tr>
                     <tr>
-                        <td width='150'>Repeat Email:</td>
-                        <td><input name='email2' type='text' /></td>
+                        <td width='115'><strong>Repeat Email</strong>:</td>
+                        <td><input class='edit' name='email2' type='text' /></td>
                     </tr>
                     <tr>
                         <td colspan='2'><input name='change_email' type='submit' value='Change Email' /></td>

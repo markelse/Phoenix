@@ -1,3 +1,7 @@
+V 1.0 BETA
+ - Fixed error in login.php
+ - Fixed error in register.php
+
 V 1.0
  - Re-coded the way that pages are displayed.
  - Re-coded the way that page URLS are displayed. (Now shows as domain.com/category/page/)
@@ -16,6 +20,7 @@ V 1.0
  - Updated the footer template.
  - Fixed error with URL off login/logout pages.
  - Created an auto-installer.
+ - Created an easier way of editing the config information and structured better MYSQL tables around it.
 
 
 V 0.3.7 (20th Feb 14)

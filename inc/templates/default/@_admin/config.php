@@ -1,54 +1,30 @@
-<?php  
-if(isset($_POST['submit'])) {
-    {
-    $site_name      = mysqli_real_escape_string($con, $_POST['site_name']);
-    $site_path      = mysqli_real_escape_string($con, $_POST['site_path']);
-    $site_url       = mysqli_real_escape_string($con, $_POST['site_url']);
-        
-    $add = mysqli_query($con,"UPDATE config2 SET site_name = '{$site_name}', site_path = '{$site_path}', site_url = '{$site_url}'");
-      
-    // Display a message upon successfull update.
-    user_message("success message","Success","$msg_updated_config");
-    }
-}
-    // Query the database
-    include 'inc/reuse/query_site_config.php';
-    
-    echo "
-        <h2>{$site_name} Config</h2>
-        
-        <p>Here you can edit your website's config file, double check any edits before you click on edit config, incorrect settings could render your website broken.</p>
-                
-        <form name='edit' method='POST' action='{$site_url}admin/config/'>
-            <table class='alt'>
-                <tr>
-                    <td width='60%'><strong>Site Name</strong>:
-                    <br /> This is displayed in the header of the template and the page title.<br /> <br /> </td>
-                
-                    <td><input type='text' name='site_name' value='{$config["site_name"]}' style='width:300px'></td>
-                </tr>
-                <tr>
-                    <td width='60%'><strong>Site Path</strong>:<br /> 
-                    The path to the root directory of the site, must contain a trailing slash at the end.<br /> <br /> </td>
-                
-                    <td><input type='text' name='site_path' value='{$config["site_path"]}' style='width:300px'></td>
-                </tr>
-                <tr>
-                    <td width='60%'><strong>Site URL</strong>:<br /> 
-                    The URL of the site, must contain a trailing slash at the end.<br /> <br /> </td>
-                
-                    <td><input type='text' name='site_url' value='{$config["site_url"]}' style='width:300px'></td>
-                </tr>
-                <tr>
-                    <td width='60%'><strong>Site Theme</strong>:<br /> 
-                    The theme that will be used for the site, must represent a valid folder name inside of /inc/templates/<br /> <br /> </td>
-                
-                    <td><input type='text' name='site_theme' value='{$config["site_theme"]}' style='width:300px'></td>
-                </tr>
-                <tr>
-                    <td colspan='6'><input name='submit' type='submit' value='Edit Config' /></td>
-                </tr>
-            </table>
-        </form>";
+<?php
+// Query the database for a list of members
+$query_config = mysqli_query($con,"SELECT * FROM config ORDER BY id");
+
+// Echo the results in the form of a formatted HTML table.
+echo "
+    <h2>{$site_name} Config</h2>
                     
-mysqli_close($con);
+        <p>Here you can edit your website's config file, double check any edits before you click on edit config, incorrect settings could render your website broken.</p>
+                    
+    <table class='alt' align='left'>
+        <tr>
+            <th align='left' width='12'>ID</th>
+            <th align='left' width='40'>Name</th>
+            <th align='left' width='220'>Value</th>
+            <th align='left' width='290'>Description</th>
+        </tr>";
+    
+// While there is still a member to dislay echo their details
+while ($config_list = mysqli_fetch_array($query_config, MYSQLI_ASSOC)) {
+    echo "
+        <tr>
+            <td style='text-align: center'><a href='{$site_url}admin/config_edit/{$config_list["id"]}/'>{$config_list["id"]}</a></td>
+            <td>{$config_list["Name"]}</td>
+            <td>{$config_list["Value"]}</td>
+            <td>{$config_list["Description"]}</td>
+        </tr>";
+}
+
+echo "</table>";

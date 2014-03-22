@@ -1,8 +1,5 @@
-<?php
-
-echo "
-    <h2>Members Dashboard</h2>
+<h2>Members Dashboard</h2>
     
-    <p>Hi, </p>
+<p>Hello <?php get_username(); ?>!</p>
     
-    <p>Posted in Members.</p>";
+<p>This is the default members dashboard, you can use this as a placeholder for important new, links or events.</p>

@@ -32,14 +32,16 @@ echo "
     <form name='edit' method='POST' action='{$site_url}admin/member_edit/{$userid}/'>
         <table>
             <tr>
-                <th align='left' width='35%'>Username</th>
-                <th align='left' width='45%'>Email Address</th>
-                <th align='left' width='20%'>User Level</th>
+                <td width='125'><strong>Name</strong>:</td>
+                <td><input class='edit' type='text' name='username' value='{$m_edit["username"]}'></td>
             </tr>
             <tr>
-                <td><input type='text' name='username' value='{$m_edit["username"]}'></td>
-                <td><input type='text' name='email' value='{$m_edit["email"]}'></td>
-                <td><input type='text' name='user_level' value='{$m_edit["user_level"]}'></td>
+                <td width='125'><strong>Email</strong>:</td>
+                <td><input class='edit' type='text' name='email' value='{$m_edit["email"]}'></td>
+            </tr>
+            <tr>
+                <td width='125'><strong>User Level</strong>:</td>
+                <td><input class='edit' type='text' name='user_level' value='{$m_edit["user_level"]}'></td>
             </tr>
             <tr>
                 <td colspan='6'><input type='hidden' name='userid' value='{$m_edit['id']}'>

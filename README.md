@@ -24,10 +24,7 @@ you are advised to fully test this script before using it in a productive enviro
 
 ### Installation
 
-1. Open up phpmyadmin (or command or similar database admin tool).
-2. Run the provided SQL.
-3. Open phpmyadmin (or similar database tool) and fill out the default site info in the config table.
-3. Register a new member.
-4. Open up phpmyadmin again and find the user that you have just registered and change the user_level entry from 1 to 5, this will make you an admin.
-5. Edit .htaccess and change your site path to match what you have entered in config.
-6. Login to your account and check that it is working OK.
+1. Open /inc/db.inc.php and edit to match your database.
+2. Open /install.php and edit to match your details.
+3. Run /install.php in your web browser.
+4. Edit .htaccess to match the path to your index.php file.

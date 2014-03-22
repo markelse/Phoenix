@@ -1,14 +1,17 @@
 <?php
 require 'inc/functions.inc.php';
 require 'inc/db.inc.php';
+include "inc/templates/{$site_theme}/header.php";
 
-get_page_header();
+include "inc/templates/{$site_theme}/l-sidebar.php";
+
+
+echo "
+<div id='content'>";
 
 if(!isLoggedIn()) {
     // Display the registration form
     echo "
-    <div class='container'>
-	    <main class='content'>
             <form name='register' method='POST' action='{$site_url}register.php'>
                 <table>
                     <tr>
@@ -88,18 +91,14 @@ if(isset($_POST['submit'])) {
     }
 }
 
-echo "</main></div>";
-
 // If logged in
 } else {
         user_message("info message","Error","You already have an account, should you want to register another you will first need to log out.");
 }
+echo "</div>";
+    
+include "inc/templates/{$site_theme}/r-sidebar.php";
 
-include 'inc/templates/default/sidebar.php';
-?>	
-</div>
-
-<?php
-include 'inc/templates/default/footer.php';
+include "inc/templates/{$site_theme}/footer.php";
 
 mysqli_close($con);
