@@ -1,13 +1,19 @@
 <?php
 $pageid = mysqli_real_escape_string($con, $_GET["id"]);
 
-if(isset($_POST['submit'])) {
-    // Prepare the user data for user editing
+if(isset($_POST['delete']) && is_numeric($_POST['pageid'])) {
+    $id = mysqli_real_escape_string($con, $_POST['pageid']);
+    $delete = mysqli_query($con,"DELETE FROM pages WHERE id='{$id}'");
+    
+    echo "<h2>Page Deleted</h2>
+          <p>The page has been successfully deleted. <a href='{$site_url}admin/page_view/'>Click here</a> to the remaining pages.";
+    
+} elseif(isset($_POST['submit']) && is_numeric($_POST['id'])) {
     $title = mysqli_real_escape_string($con, $_POST['title']);
     $excerpt = mysqli_real_escape_string($con, $_POST['excerpt']);
     $body = mysqli_real_escape_string($con, $_POST['body']);                                
     $category = mysqli_real_escape_string($con, $_POST['category']);
-
+    
     $_SESSION['p_title'] = $title;
     $_SESSION['p_excerpt'] = $excerpt;
     $_SESSION['p_body'] = $body;
@@ -23,12 +29,18 @@ if(isset($_POST['submit'])) {
         user_message("success message","Success","$msg_updated_page");
     }
 }      
-
+if(!isset($_POST['delete'])) {
 // Display the form
      $query = mysqli_query($con,"SELECT * FROM pages WHERE id = {$pageid}");
      $p_edit = mysqli_fetch_array($query, MYSQLI_ASSOC);
      
-     echo "
+     echo "<script type=\"text/javascript\">
+               function ConfirmDelete()
+      {
+            if (confirm(\"Are you sure that you want to delete this page? This is not reversiable!!\"))
+                 location.href='{$site_url}admin/page_edit/{$p_edit["id"]}';
+      }
+            </script>
     <form id='edit' name='edit' method='POST' action='{$site_url}admin/page_edit/{$p_edit["id"]}/'>
         <table>
             <tr>
@@ -64,11 +76,12 @@ if(isset($_POST['submit'])) {
                 <td><input type='text' name='category' value='{$p_edit["category"]}'></td>
             </tr>
             <tr>
-                <td colspan='6'><input type='hidden' name='pageid' value='{$p_edit['id']}'>
+                <td><input onclick=\"ConfirmDelete()\" type='submit' name='delete' value='Delete' /></td>
+                <td><input type='hidden' name='pageid' value='{$p_edit['id']}'>
                                 <input name='submit' type='submit' value='Edit Page' />
                 </td>
             </tr>
         </table>
     </form>";
-                
+}        
 mysqli_close($con);

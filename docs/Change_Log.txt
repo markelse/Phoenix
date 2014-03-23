@@ -1,3 +1,14 @@
+V 1.1
+ - Stripped 4 lines of code from index.php.
+ - Stripped 5 lines of code from /inc/templates/default/template.php
+ - Added is_numeric() checks when requesting ids to help prevent manipulation.
+ - Added delete button (with confirmation) to edit pages page.
+ - Added delete button (with confirmation) to edit users page.
+
+V 1.0.1 BETA
+ - Fixed error with created pages not displaying.
+ - Fixed error with no homepage being displayed.
+
 V 1.0 BETA
  - Fixed error in login.php
  - Fixed error in register.php
@@ -22,7 +33,7 @@ V 1.0
  - Created an auto-installer.
  - Created an easier way of editing the config information and structured better MYSQL tables around it.
 
-
+Pre 1.0
 V 0.3.7 (20th Feb 14)
  - First test on a live website.
  - Fixed logo image path.

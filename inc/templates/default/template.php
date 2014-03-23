@@ -1,14 +1,6 @@
 <?php
 include "inc/templates/{$site_theme}/header.php";
-
 include "inc/templates/{$site_theme}/l-sidebar.php";
-
-$page = mysqli_real_escape_string($con, $_GET['page']);
-$sub = mysqli_real_escape_string($con, $_GET['sub']);
-    
-// Run the query and create an array named $page2[]
-$query_page = mysqli_query($con,"SELECT * FROM pages WHERE title = '$sub' AND category = '$page'");
-$page_sel = mysqli_fetch_array($query_page);
 
 // Give the array rows easy to remember variable names.
 $page_title         = $page_sel["title"];

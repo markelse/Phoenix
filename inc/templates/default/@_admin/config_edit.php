@@ -35,7 +35,7 @@ echo "
                 <td><p><strong>Config Value:</strong> <input class='edit' type='text' name='value' value='{$config_edit["Value"]}'></p></td>
             </tr>
             <tr>
-                <td colspan='6'><input type='hidden' name='config_id' value='{$config_edit['id']}'>
+                <td><input type='hidden' name='config_id' value='{$config_edit['id']}'>
                                 <input name='submit' type='submit' value='Edit Config' />
                 </td>
             </tr>

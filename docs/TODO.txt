@@ -1,10 +1,9 @@
 - Allow for user control (Addition) via admin area.
-- Allow for user control (Deletion) via admin area.
 - Allow for password resets by email.
 - Add forgotten password feature.
 - Add 'Remember Me' on login page.
 - Add content syndication.
 - Add a site search.
-- Improve the look of the default template.
 - Incorporate 3rd party login scripts such as Facebook Connect & openID.
 - Better control over created pages.
+

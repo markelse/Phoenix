@@ -1,7 +1,17 @@
 <?php
 $userid = mysqli_real_escape_string($con, $_GET["id"]);
 
-if(isset($_POST['submit'])) {
+if(isset($_POST['delete']) && is_numeric($_POST['userid'])) {
+    $id = mysqli_real_escape_string($con, $_POST['userid']);
+    if($id == is_numeric(1)) {
+        echo "<p>Sorry but the admin user cannot be deleted.</p>";
+    } else {
+    $delete = mysqli_query($con,"DELETE FROM user WHERE id='{$id}'");
+    
+    echo "<h2>Member Deleted</h2>
+          <p>The user has been successfully deleted. <a href='{$site_url}admin/memberslist/'>Click here</a> to the remaining members.";
+    }
+} elseif(isset($_POST['submit'])) {
     // Prepare the user data for user editing
     $username       = mysqli_real_escape_string($con, $_POST['username']);
     $email          = mysqli_real_escape_string($con, $_POST['email']);
@@ -22,13 +32,18 @@ if(isset($_POST['submit'])) {
     // Display a message upon successfull update.
     user_message("success message","Success","$msg_updated_member_edit");
 }
-    
-// Run a query based on the user id, we dont use * in our query to prevent things such
-// as passwords and salts being returned to malicious visitors
+
+if(!isset($_POST['delete'])) {
 $query_user = mysqli_query($con,"SELECT id, username, email, user_level FROM users WHERE id = {$userid}");
 $m_edit = mysqli_fetch_array($query_user, MYSQLI_ASSOC);
     
-echo "
+echo "<script type=\"text/javascript\">
+               function ConfirmDelete()
+      {
+            if (confirm(\"Are you sure that you want to delete this member? This is not reversiable!!\"))
+                 location.href='{$site_url}admin/member_edit/{$userid}/';
+      }
+            </script>
     <form name='edit' method='POST' action='{$site_url}admin/member_edit/{$userid}/'>
         <table>
             <tr>
@@ -44,11 +59,12 @@ echo "
                 <td><input class='edit' type='text' name='user_level' value='{$m_edit["user_level"]}'></td>
             </tr>
             <tr>
-                <td colspan='6'><input type='hidden' name='userid' value='{$m_edit['id']}'>
+                <td><input onclick=\"ConfirmDelete()\" type='submit' name='delete' value='Delete' /></td>
+                <td><input type='hidden' name='userid' value='{$m_edit['id']}'>
                                 <input name='submit' type='submit' value='Edit Member' />
                 </td>
             </tr>
         </table>
     </form>";    
-        
+}  
 mysqli_close($con);
